@@ -11,7 +11,8 @@ Memory Usage: 13.1 MB, less than 99.29% of Python online submissions for Invert 
 #         self.right = right
 
 class Solution(object):
-    def invertTree(self, root):
+
+    def invertTree_BFS(self, root):
         """
         :type root: TreeNode
         :rtype: TreeNode
@@ -43,4 +44,24 @@ class Solution(object):
                     queue.append(node.right)
                     
         # return edited tree
+        return root
+
+    def invertTree_DFS(self, root):
+        """
+        :type root: TreeNode
+        :rtype: TreeNode
+        """
+        # edge case for None input
+        if not root:
+            return None
+
+        # switch left and right children
+        temp_left = root.left
+        root.left = root.right
+        root.right = temp_left
+
+        # DFS recursive calls to left and right children
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+
         return root
