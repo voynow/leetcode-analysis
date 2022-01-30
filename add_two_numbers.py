@@ -46,3 +46,55 @@ class Solution(object):
                 node = node.next
         
         return root
+
+
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+
+        # sums across linked lists
+        sums = []
+        while l1 or l2:
+            
+            # add sum of vals to sums
+            if l1 and l2:
+                sums.append(l1.val + l2.val)
+                l1 = l1.next
+                l2 = l2.next
+                
+            # add l1 val to sums
+            elif not l1:
+                sums.append(l2.val)
+                l2 = l2.next
+                
+            # add l2 val to sums
+            elif not l2:
+                sums.append(l1.val)
+                l1 = l1.next
+        
+        # "carry the one" like in elementary school 
+        for i in range(len(sums)):
+            if sums[i] >= 10:
+                sums[i] -= 10
+                if i == len(sums) - 1:
+                    sums.append(1)
+                else:
+                    sums[i + 1] += 1        
+                    
+        # create linked list
+        root = ListNode()
+        node = root
+        
+        # iterate over sums
+        for i, ch in enumerate(sums):
+            node.val = ch
+            
+            # do not create a new node
+            if i != len(sums) - 1:
+                node.next = ListNode()
+                node = node.next
+        
+        return root
