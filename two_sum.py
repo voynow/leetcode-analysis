@@ -7,6 +7,7 @@ class Solution(object):
         Memory Usage: 14.2 MB, less than 89.73% of Python online submissions for Two Sum.
         """
         
+        # check all combinations
         for i in range(len(nums)):
             for j in range(i + 1, len(nums)):
                 if nums[i] + nums[j] == target:
@@ -21,6 +22,8 @@ class Solution(object):
 
         lookup = {}
         
+        # add eliments in order to lookup table
+        # search for required second element in lookup table for return
         for i, num in enumerate(nums):
             if target - num in lookup:
                 return [i, lookup[target - num]]

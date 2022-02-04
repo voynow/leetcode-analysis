@@ -10,17 +10,25 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         triplets = []
+
+        # sort list O(n log(n))
         nums.sort()
-        print(nums)
         
+        # iterate over elements
         for i, num in enumerate(nums):
+
+            # dont consider duplicates
             if i > 0 and num == nums[i - 1]:
                 continue
                 
+            # set pointers
             l = i + 1
             r = len(nums) - 1
             
+            # iterate until pointers converge
             while l < r:
+
+                # calculate sum, update pointers accordingly
                 three_sum = num + nums[l] + nums[r]
                 if  three_sum > 0:
                     r -= 1
@@ -28,6 +36,8 @@ class Solution(object):
                     l += 1
                 elif three_sum == 0:
                     triplets.append([num, nums[l], nums[r]])
+
+                    # find other 2nd and 3rd elements given 1st element
                     l += 1
                     while nums[l] == nums[l - 1] and l < r:
                         l += 1
