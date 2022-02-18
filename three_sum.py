@@ -37,10 +37,19 @@ class Solution(object):
                 elif three_sum == 0:
                     triplets.append([num, nums[l], nums[r]])
 
-                    # find other 2nd and 3rd elements given 1st element
+                    # update left pointer to skip any duplicate elements
+                    # this part was TRICKY to unpack
                     l += 1
                     while nums[l] == nums[l - 1] and l < r:
                         l += 1
+
+                    # Alternate solution to the skip duplicate idea
+                    # while l < r and nums[l] == nums[l + 1]:
+                    #     l += 1
+                    # while l < r and nums[r] == nums[r - 1]:
+                    #     r -= 1
+                    # l += 1
+                    # r -= 1
                 
         return triplets
                     
