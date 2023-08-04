@@ -1,6 +1,10 @@
 """
-Runtime: 39 ms, faster than 19.56% of Python online submissions for Valid Parentheses.
-Memory Usage: 13.6 MB, less than 30.76% of Python online submissions for Valid Parentheses.
+Runtime
+11ms
+Beats 94.74%of users with Python
+Memory
+13.49mb
+Beats 50.18%of users with Python
 """
 class Solution(object):
     def isValid(self, s):
@@ -8,33 +12,27 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        chmap = {
+        strmap = {
             '(': ')',
             '{': '}',
             '[': ']',
         }
-        stack = []
 
+        stack = []
         while s:
-            ch = s[0]
-            # check if open parentheses
-            if ch in chmap:
-                stack.append(ch)
+            if s[0] in strmap:
+                stack.append(s[0])
             else:
-                # stack is empty -> invalid
-                if not stack:
+                if not stack and s:
                     return False
-                # current char matches top of stack -> valid
-                if ch == chmap[stack[-1]]:
-                    stack = stack[:-1]
-                # all other cases -> invalid
-                else:
+                if stack and s[0] != strmap[stack.pop()]:
                     return False
             s = s[1:]
-        
-        # chars remaining in stack -> invalid
+    
         if stack:
             return False
 
         return True
-    
+
+            
+
