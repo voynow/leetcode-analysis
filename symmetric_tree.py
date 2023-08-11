@@ -23,3 +23,35 @@ class RecursiveSolution(object):
             return compare(l.left, r.right) and compare(l.right, r.left)
 
         return compare(root.left, root.right)
+    
+
+class IterativeSolution(object):
+    def isSymmetric(self, root):
+
+        q = [root.left, root.right]
+
+        while q:
+            lqueue = []
+            rqueue = []
+
+            mid = len(q) // 2
+            l = q[:mid]
+            r = q[mid:]
+
+            for _ in range(len(l)):
+                q.pop()
+                q.pop()
+                lnode = l.pop(0)
+                rnode = r.pop(0)
+                
+                if lnode is None and rnode is None:
+                    continue
+                elif lnode is None or rnode is None or lnode.val != rnode.val:
+                    return False
+                else:
+                    lqueue.extend([lnode.left, lnode.right])
+                    rqueue.extend([rnode.right, rnode.left])
+
+            q.extend(lqueue + rqueue)
+
+        return True
