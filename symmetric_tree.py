@@ -31,27 +31,14 @@ class IterativeSolution(object):
         q = [root.left, root.right]
 
         while q:
-            lqueue = []
-            rqueue = []
-
-            mid = len(q) // 2
-            l = q[:mid]
-            r = q[mid:]
-
-            for _ in range(len(l)):
-                q.pop()
-                q.pop()
-                lnode = l.pop(0)
-                rnode = r.pop(0)
-                
-                if lnode is None and rnode is None:
-                    continue
-                elif lnode is None or rnode is None or lnode.val != rnode.val:
-                    return False
-                else:
-                    lqueue.extend([lnode.left, lnode.right])
-                    rqueue.extend([rnode.right, rnode.left])
-
-            q.extend(lqueue + rqueue)
+            lnode = q.pop(0)
+            rnode = q.pop(0)
+            
+            if lnode is None and rnode is None:
+                continue
+            elif lnode is None or rnode is None or lnode.val != rnode.val:
+                return False
+            else:
+                q.extend([lnode.left, rnode.right, lnode.right, rnode.left])
 
         return True
