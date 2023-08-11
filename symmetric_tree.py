@@ -10,28 +10,16 @@ Given the root of a binary tree, check whether it is a mirror of itself (i.e., s
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution(object):
+class RecursiveSolution(object):
     def isSymmetric(self, root):
 
-        def traverse_right(node, vals):
-            if node:
-                vals.append(node.val)
-                vals = traverse_right(node.right, vals)
-                vals = traverse_right(node.left, vals)
-            else:
-                vals.append(None)
-            return vals
+        def compare(l, r):
+            if l is None and r is None:
+                return True
+            if l is None and r is not None or r is None and l is not None:
+                return False
+            if l.val != r.val:
+                return False
+            return compare(l.left, r.right) and compare(l.right, r.left)
 
-        def traverse_left(node, vals):
-            if node:
-                vals.append(node.val)
-                vals = traverse_left(node.left, vals)
-                vals = traverse_left(node.right, vals)
-            else:
-                vals.append(None)
-            return vals
-
-        l = traverse_left(root.left, [])
-        r = traverse_right(root.right, [])
-
-        return l == r
+        return compare(root.left, root.right)
