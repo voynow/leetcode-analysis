@@ -40,19 +40,13 @@ class Solution(object):
         :rtype: bool
         """
         s = "".join([ch.lower() for ch in s if ch.isalpha() or ch.isnumeric()])
-        mid = len(s) // 2
 
-        print(s)
+        l = 0
+        r = len(s) - 1
 
-        l = s[:mid]
-        if len(s) % 2:
-            r = s[mid + 1:]
-        else:
-            r = s[mid:]
-
-        print(l, r)
-
-        for i in range(len(l)):
-            if l[i] != r[-(i + 1)]:
+        while l < r and l != r:
+            if s[l] != s[r]:
                 return False
+            l += 1
+            r -= 1
         return True
