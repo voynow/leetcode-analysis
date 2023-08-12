@@ -1,8 +1,8 @@
 
 # LeetCode Python Solutions 🐍: A Journey of Progress
 
-### Progress: 33/150 Problems Solved
-![22%](https://progress-bar.dev/22)
+### Progress: 37/150 Problems Solved
+![25%](https://progress-bar.dev/25)
 
 Welcome to the LeetCode Python Solutions repository! This repository is not just a collection of solutions; it's a testament to a continuous journey of learning and growth. From problems tackled years ago to recent endeavors, the solutions here demonstrate a progression in understanding, efficiency, and mastery of various algorithms and data structures.
 
