@@ -1,8 +1,3 @@
-"""
-Runtime: 29 ms, faster than 24.50% of Python online submissions for Invert Binary Tree.
-Memory Usage: 13.1 MB, less than 99.29% of Python online submissions for Invert Binary Tree.
-"""
-
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, val=0, left=None, right=None):

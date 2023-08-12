@@ -1,11 +1,3 @@
-"""
-Runtime
-11ms
-Beats 94.74%of users with Python
-Memory
-13.49mb
-Beats 50.18%of users with Python
-"""
 class Solution(object):
     def isValid(self, s):
         """

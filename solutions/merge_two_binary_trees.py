@@ -1,7 +1,3 @@
-"""
-Runtime: 92 ms, faster than 47.86% of Python online submissions for Merge Two Binary Trees.
-Memory Usage: 15.1 MB, less than 8.57% of Python online submissions for Merge Two Binary Trees.
-"""
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, val=0, left=None, right=None):

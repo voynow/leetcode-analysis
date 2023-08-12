@@ -1,7 +1,3 @@
-"""
-Runtime: 1023 ms, faster than 13.68% of Python online submissions for Move Zeroes.
-Memory Usage: 14.6 MB, less than 85.23% of Python online submissions for Move Zeroes.
-"""
 class Solution(object):
     def moveZeroes(self, nums):
         """

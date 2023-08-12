@@ -1,12 +1,3 @@
-"""
-Runtime
-33ms
-Beats 97.04%of users with Python
-Memory
-13.23mb
-Beats 59.99%of users with Python
-"""
-
 class Solution(object):
     def isPalindrome(self, x):
         """

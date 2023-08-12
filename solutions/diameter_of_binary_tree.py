@@ -1,7 +1,3 @@
-"""
-Runtime: 36 ms, faster than 66.91% of Python online submissions for Diameter of Binary Tree.
-Memory Usage: 16.8 MB, less than 6.62% of Python online submissions for Diameter of Binary Tree.
-"""
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, val=0, left=None, right=None):

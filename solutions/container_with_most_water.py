@@ -1,7 +1,3 @@
-"""
-Runtime: 1011 ms, faster than 21.07% of Python online submissions for Container With Most Water.
-Memory Usage: 23.8 MB, less than 95.31% of Python online submissions for Container With Most Water.
-"""
 class Solution(object):
     def maxArea(self, height):
         """

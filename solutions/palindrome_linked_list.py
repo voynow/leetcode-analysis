@@ -1,7 +1,3 @@
-"""
-Runtime: 1529 ms, faster than 30.10% of Python online submissions for Palindrome Linked List.
-Memory Usage: 85.4 MB, less than 25.97% of Python online submissions for Palindrome Linked
-"""
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, val=0, next=None):

@@ -1,7 +1,3 @@
-"""
-Runtime: 64 ms, faster than 67.72% of Python online submissions for Add Two Numbers.
-Memory Usage: 13.6 MB, less than 45.85% of Python online submissions for Add Two Numbers.
-"""
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, val=0, next=None):

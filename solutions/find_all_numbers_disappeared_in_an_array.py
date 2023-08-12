@@ -1,7 +1,3 @@
-"""
-Runtime: 316 ms, faster than 72.66% of Python online submissions for Find All Numbers Disappeared in an Array.
-Memory Usage: 25.1 MB, less than 5.04% of Python online submissions for Find All Numbers Disappeared in an Array.
-"""
 class Solution(object):
     def findDisappearedNumbers(self, nums):
         """

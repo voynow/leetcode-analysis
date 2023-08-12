@@ -1,7 +1,3 @@
-"""
-Runtime: 3753 ms, faster than 24.51% of Python online submissions for Longest Palindromic Substring.
-Memory Usage: 13.5 MB, less than 72.36% of Python online submissions for Longest Palindromic Substring.
-"""
 class Solution(object):
     def longestPalindrome(self, s):
         """
