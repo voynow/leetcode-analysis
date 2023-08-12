@@ -1,6 +1,14 @@
 from dotenv import load_dotenv
 import openai
 import os
+import pickle
+
+
+load_dotenv()
+openai.api_key = os.environ["OPENAI_API_KEY"]
+
+EMBEDDINGS_MODEL = "text-embedding-ada-002"
+
 
 def extract_texts_from_folder(folder_path):
     texts = {}
@@ -10,15 +18,19 @@ def extract_texts_from_folder(folder_path):
                 texts[filename] = file.read()
     return texts
 
+
+def get_embeddings(texts):
+    embeddings_data = {}
+    for filename, text in texts.items():
+        print(f'Getting embedding for {filename}')
+        response = openai.Embedding.create(input=text, model=EMBEDDINGS_MODEL)
+        embedding = response['data'][0]['embedding']
+        embeddings_data[filename] = {
+            'embedding': embedding, 'text': text
+        }
+    return embeddings_data
+
 folder_path = 'solutions'
 texts = extract_texts_from_folder(folder_path)
-
-load_dotenv()
-openai.api_key = os.environ["OPENAI_API_KEY"]
-
-response = openai.Embedding.create(
-  input="Educative answers section is helpful",
-  model="text-embedding-ada-002"
-)
-
-embeddings = response['data'][0]['embedding']
+embeddings = get_embeddings(texts)
+pickle.dump(embeddings, open('embeddings.pkl', 'wb'))
