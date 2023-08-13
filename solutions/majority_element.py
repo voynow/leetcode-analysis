@@ -34,7 +34,7 @@ class Solution(object):
         :rtype: int
         """
         # linear space complexity
-        
+
         counter = {}
 
         numslen = len(nums)
@@ -46,3 +46,25 @@ class Solution(object):
 
             if counter[item] > numslen / 2:
                 return item
+            
+
+
+class Solution(object):
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        # Boyer-Moore Voting Algorithm
+        # constant space complexity
+
+        candidate = -1
+        counter = 0
+
+        for item in nums:
+            if candidate == item or counter == 0:
+                candidate = item
+                counter += 1
+            else:
+                counter -= 1
+        return candidate
