@@ -1,22 +1,15 @@
-# LeetCode Progress Tracker and Analysis
+# LeetCode Progress Tracker & Analysis
 
-![GitHub stars](https://img.shields.io/github/stars/your_username/your_repo_name?style=social)
-![PyPI](https://img.shields.io/pypi/v/your_package_name)
 
-This repository is designed to track and showcase your progress on LeetCode while also providing a unique data analysis on the problems and solutions. It uses OpenAI's API to generate embeddings for Python code and visualizes these embeddings using PCA. 
+This repository is designed to track and showcase your progress on LeetCode while also providing a unique data analysis on the problems and solutions. It uses OpenAI to generate embeddings for Python code and visualizes them using PCA. 
 
 ## 🚀 Why Use This Repo?
 
-If you are a LeetCode enthusiast and want to track your progress in a fun and interactive way, this repository is for you. It allows you to:
-
-- Track your progress on LeetCode
-- Analyze your solutions
-- Visualize the embeddings of your Python code
-- Understand the structure and style of your code
+If you're a LeetCode enthusiast who wants to track your progress in a visually appealing way, this repo is for you! It not only helps you keep track of the problems you've solved but also provides an interesting data analysis of your solutions. 
 
 ## 📂 Repo Structure
 
-```bash
+```
 .
 ├── .gitignore
 ├── requirements.txt
@@ -32,20 +25,23 @@ If you are a LeetCode enthusiast and want to track your progress in a fun and in
     ├── diameter_of_binary_tree.py
     ├── find_all_numbers_disappeared_in_an_array.py
     ├── find_the_index_of_the_first_occurance_in_a_string.py
-    └── fizz_buzz.py
+    ├── fizz_buzz.py
+    └── ...
 ```
 
 ## 📝 Requirements
 
-The `requirements.txt` file lists the Python libraries that your project depends on. You can install them using:
+- openai
+- scikit-learn
+- matplotlib
+- seaborn
+- adjustText
 
-```bash
-pip install -r requirements.txt
-```
+Install the required packages using `pip install -r requirements.txt`.
 
-## 💻 Usage
+## 📖 Usage
 
-Here is an example of how to use the `code_to_embeddings.py` script to generate embeddings for your Python code:
+Here is an example of how to use the `code_to_embeddings.py` script:
 
 ```python
 from dotenv import load_dotenv
@@ -64,47 +60,8 @@ embeddings = get_embeddings(texts)
 pickle.dump(embeddings, open('embeddings.pkl', 'wb'))
 ```
 
-## 📈 Visualization
+This script extracts the text from Python files in the specified folder, gets the embeddings for each file using OpenAI, and saves the embeddings to a pickle file.
 
-The `embeddings_viz.py` script uses PCA to reduce the dimensionality of the embeddings and visualizes them in a 2D scatter plot. Here is an example of how to use it:
+## 🎉 Conclusion
 
-```python
-import logging
-import pickle
-import matplotlib.pyplot as plt
-import numpy as np
-from sklearn.decomposition import PCA
-
-plt.style.use('seaborn')
-
-# Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
-# Load embeddings
-logging.info('Loading embeddings from file...')
-with open('data/embeddings.pkl', 'rb') as file:
-    embeddings_data = pickle.load(file)
-
-# Apply PCA for dimensionality reduction
-logging.info('Applying PCA for dimensionality reduction...')
-pca = PCA(n_components=2)
-reduced_embeddings = pca.fit_transform(embeddings)
-
-# Plot the 2D embeddings
-logging.info('Plotting the 2D embeddings...')
-plt.figure(figsize=(12, 10))
-plt.scatter(reduced_embeddings[:, 0], reduced_embeddings[:, 1], s=100)
-
-# Export the plot to a file
-plot_filename = 'data/embeddings_plot.png'
-plt.savefig(plot_filename, format='png', dpi=300)
-logging.info(f'Plot saved to {plot_filename}')
-```
-
-## 📚 Solutions
-
-The `solutions` directory contains Python solutions to various LeetCode problems. Each solution is contained in a separate `.py` file. For example, the `add_two_numbers.py` file contains a solution to the "Add Two Numbers" problem on LeetCode.
-
-## 📝 Note
-
-Please replace `your_username`, `your_repo_name`, and `your_package_name` with your actual GitHub username, repository name, and package name respectively in the badges at the top of this README.
+This repo is a fun and interactive way to track your LeetCode progress and analyze your solutions. Happy coding!
