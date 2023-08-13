@@ -1,5 +1,7 @@
 # LeetCode Progress Tracker & Analysis
 
+#### Progress: 37/150 Problems Solved
+![25%](https://progress-bar.dev/25)
 
 This repository is designed to track and showcase your progress on LeetCode while also providing a unique data analysis on the problems and solutions. It uses OpenAI to generate embeddings for Python code and visualizes them using PCA. 
 
@@ -7,8 +9,6 @@ This repository is designed to track and showcase your progress on LeetCode whil
 
 If you're a LeetCode enthusiast who wants to track your progress in a visually appealing way, this repo is for you! It not only helps you keep track of the problems you've solved but also provides an interesting data analysis of your solutions. 
 
-### Progress: 37/150 Problems Solved
-![25%](https://progress-bar.dev/25)
 
 ## 📂 Repo Structure
 
