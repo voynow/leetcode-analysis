@@ -1,0 +1,12 @@
+ignore = [
+    "turbo_docs.toml",
+    "__pycache__",
+    "venv",
+    "build",
+    "dist",
+    "*.egg-info",
+    ".git",
+    "ignore_folder",
+    "data",
+    ".env",
+]
