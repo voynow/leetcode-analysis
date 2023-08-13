@@ -1,37 +1,70 @@
+# LeetCode Progress Tracker & Analysis
 
-# LeetCode Python Solutions 🐍: A Journey of Progress
+
+This repository is designed to track and showcase your progress on LeetCode while also providing a unique data analysis on the problems and solutions. It uses OpenAI to generate embeddings for Python code and visualizes them using PCA. 
+
+## 🚀 Why Use This Repo?
+
+If you're a LeetCode enthusiast who wants to track your progress in a visually appealing way, this repo is for you! It not only helps you keep track of the problems you've solved but also provides an interesting data analysis of your solutions. 
 
 ### Progress: 37/150 Problems Solved
 ![25%](https://progress-bar.dev/25)
 
-Welcome to the LeetCode Python Solutions repository! This repository is not just a collection of solutions; it's a testament to a continuous journey of learning and growth. From problems tackled years ago to recent endeavors, the solutions here demonstrate a progression in understanding, efficiency, and mastery of various algorithms and data structures.
+## 📂 Repo Structure
 
-## Why Use This Repo? 🎯
-
-- **Historical Progression**: Witness the evolution of coding skills, from early attempts to current sophisticated solutions.
-- **Comprehensive Solutions**: Dive into a wide range of topics, including data structures, algorithms, and more, all written in Python.
-- **Insights and Comments**: Benefit from well-commented code, runtime statistics, and personal insights that provide context to each solution.
-- **A Personal Challenge**: This repository is a living document of a relentless pursuit of knowledge and improvement. It's an inspiration for anyone on a similar journey.
-
-## Repo Structure 🌳
-
-\```
+```
 .
-├── Pascals_triangle.py                           (Recent, O(n^2) solution)
-├── binary_tree_inorder_traversal.py              (Fast solution last week)
-├── climbing_stairs.py                            (First dynamic programming, 5 hours ago)
-├── convert_sorted_array_to_height_balanced_bst.py (Good progress, 5 days ago)
-├── merge_sorted_array.py                         (Challenging, latest effort)
-└── two_sum.py                                    (Added comments, 2 years ago)
-... and many more capturing a timeline of progress!
-\```
+├── .gitignore
+├── requirements.txt
+├── scripts
+│   ├── code_to_embeddings.py
+│   └── embeddings_viz.py
+└── solutions
+    ├── add_two_numbers.py
+    ├── best_time_to_buy_and_sell_stock.py
+    ├── binary_tree_inorder_traversal.py
+    ├── climbing_stairs.py
+    ├── convert_sorted_array_to_height_balanced_bst.py
+    ├── diameter_of_binary_tree.py
+    ├── find_all_numbers_disappeared_in_an_array.py
+    ├── find_the_index_of_the_first_occurance_in_a_string.py
+    ├── fizz_buzz.py
+    └── ...
+```
 
-## Historical Highlights ✨
+## 📝 Requirements
 
-- **Years of Dedication**: Some solutions date back 2 years, reflecting long-term commitment.
-- **Recent Achievements**: Recent files showcase more complex problem-solving, highlighting current capabilities.
-- **A Mix of Challenges**: From quick solves to intricate problems, the repository represents various levels of difficulty.
+- openai
+- scikit-learn
+- matplotlib
+- seaborn
+- adjustText
 
-## Final Note 🏁
+Install the required packages using `pip install -r requirements.txt`.
 
-This repository is more than a resource; it's a chronicle of a coder's journey. Whether preparing for a coding interview or seeking inspiration for personal growth, this collection offers something unique. It's not just about the solutions; it's about the path taken to reach them. Happy coding! 🚀
+## 📖 Usage
+
+Here is an example of how to use the `code_to_embeddings.py` script:
+
+```python
+from dotenv import load_dotenv
+import openai
+import os
+import pickle
+
+load_dotenv()
+openai.api_key = os.environ["OPENAI_API_KEY"]
+
+EMBEDDINGS_MODEL = "text-embedding-ada-002"
+
+folder_path = 'solutions'
+texts = extract_texts_from_folder(folder_path)
+embeddings = get_embeddings(texts)
+pickle.dump(embeddings, open('embeddings.pkl', 'wb'))
+```
+
+This script extracts the text from Python files in the specified folder, gets the embeddings for each file using OpenAI, and saves the embeddings to a pickle file.
+
+## 🎉 Conclusion
+
+This repo is a fun and interactive way to track your LeetCode progress and analyze your solutions. Happy coding!
