@@ -58,3 +58,37 @@ class Solution(object):
         else:
             return vals[:half_idx] == vals[half_idx:][::-1]
         
+
+class Solution(object):
+    """More involved than above: Top percentile runtime and memory"""
+    def isPalindrome(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        # Find the middle and reverse the first half
+        prev = None
+        current = head
+        fast = head
+        while fast and fast.next:
+
+            # increment fast
+            fast = fast.next.next
+
+            # reverse and increment slow
+            temp = current
+            current = current.next
+            temp.next = prev
+            prev = temp
+
+        if fast is not None:
+            current = current.next
+
+        # traverse both halves and compare nodes at each step
+        while prev and current:
+            if prev.val != current.val:
+                return False
+            prev = prev.next
+            current = current.next
+        return True
+        
