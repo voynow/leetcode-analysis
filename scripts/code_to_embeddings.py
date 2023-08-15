@@ -5,6 +5,8 @@ import pickle
 
 
 load_dotenv()
+if not os.environ.get("OPENAI_API_KEY"):
+    raise ValueError("Set your OPENAI_API_KEY via export OPENAI_API_KEY=... or in a .env file")
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 EMBEDDINGS_MODEL = "text-embedding-ada-002"

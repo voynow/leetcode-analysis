@@ -2,4 +2,4 @@ openai
 scikit-learn
 matplotlib
 seaborn
-adjustText
+python-dotenv
