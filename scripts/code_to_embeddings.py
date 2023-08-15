@@ -35,4 +35,4 @@ def get_embeddings(texts):
 folder_path = 'solutions'
 texts = extract_texts_from_folder(folder_path)
 embeddings = get_embeddings(texts)
-pickle.dump(embeddings, open('embeddings.pkl', 'wb'))
+pickle.dump(embeddings, open('data/embeddings.pkl', 'wb'))
