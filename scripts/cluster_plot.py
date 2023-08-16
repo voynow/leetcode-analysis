@@ -20,7 +20,7 @@ def reduce_dimensionality(embeddings):
     tsne = TSNE(n_components=2, random_state=42)
     return tsne.fit_transform(embeddings)
 
-def plot_clusters(reduced_embeddings, labels, file_names):
+def plot_clusters(reduced_embeddings, labels, file_names, figname):
     """Plot clusters with Matplotlib using a dark theme and color-blind friendly palette."""
     # Set dark background style
     plt.style.use('dark_background')
@@ -55,15 +55,26 @@ def plot_clusters(reduced_embeddings, labels, file_names):
 
     plt.grid(False)
     plt.tight_layout()
-    plt.savefig("data/cluster_plot.png")
+    plt.savefig(f"data/{figname}.png")
+
 
 if __name__ == "__main__":
+
+    # my solutions
     embeddings_dict = load_embeddings("data/embeddings.pkl")
     embedding_list = [v["embedding"] for v in embeddings_dict.values()]
     file_names = list(embeddings_dict.keys())
     embedding_matrix = np.array(embedding_list)
-
     labels = perform_clustering(embedding_matrix)
     reduced_embeddings = reduce_dimensionality(embedding_matrix)
+    plot_clusters(reduced_embeddings, labels, file_names, figname="cluster_plot")
 
-    plot_clusters(reduced_embeddings, labels, file_names)
+
+    # huggingface solutions
+    embeddings_dict = load_embeddings("data/embeddings.pkl")
+    embedding_list = [v["embedding"] for v in embeddings_dict.values()]
+    file_names = list(embeddings_dict.keys())
+    embedding_matrix = np.array(embedding_list)
+    labels = perform_clustering(embedding_matrix)
+    reduced_embeddings = reduce_dimensionality(embedding_matrix)
+    plot_clusters(reduced_embeddings, labels, file_names, figname="hf_cluster_plot")

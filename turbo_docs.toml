@@ -9,4 +9,6 @@ ignore = [
     "ignore_folder",
     "data",
     ".env",
+    "*.ipynb",
+    "solutions"
 ]
