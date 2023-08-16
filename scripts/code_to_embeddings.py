@@ -1,3 +1,4 @@
+from datasets import load_dataset
 from dotenv import load_dotenv
 import openai
 import os
@@ -32,7 +33,17 @@ def get_embeddings(texts):
         }
     return embeddings_data
 
+
+# my solutions
 folder_path = 'solutions'
 texts = extract_texts_from_folder(folder_path)
 embeddings = get_embeddings(texts)
 pickle.dump(embeddings, open('data/embeddings.pkl', 'wb'))
+
+# huggingface solutions dataset
+dataset = load_dataset('mhhmm/leetcode-solutions-python')
+df = dataset['train'].to_pandas()
+df['code_with_problem']
+texts = df['code_with_problem'].to_dict()
+embeddings_data = get_embeddings(texts)
+pickle.dump(embeddings, open('data/hf_embeddings.pkl', 'wb'))
