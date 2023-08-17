@@ -10,5 +10,6 @@ ignore = [
     "data",
     ".env",
     "*.ipynb",
-    "solutions"
+    "solutions",
+    "plots",
 ]
