@@ -4,8 +4,8 @@ This repository contains scripts for performing data analysis on LeetCode questi
 
 <table>
   <tr>
-    <td><img src="plot/cluster.png" alt="Cluster Plot"></td>
-    <td><img src="plot/hf_cluster.png" alt="HF Cluster Plot"></td>
+    <td><img src="plots/cluster.png" alt="Cluster Plot"></td>
+    <td><img src="plots/hf_cluster.png" alt="HF Cluster Plot"></td>
   </tr>
 </table>
 
